@@ -414,7 +414,7 @@ class DownloadWorker(context: Context, params: WorkerParameters) :
                         taskDao!!.updateTask(id.toString(), DownloadStatus.RUNNING, progress)
                         updateNotification(
                             context,
-                            "Downloading",
+                            actualFilename,
                             DownloadStatus.RUNNING,
                             progress,
                             null,
