@@ -149,6 +149,7 @@ class DownloadWorker(context: Context, params: WorkerParameters) :
         taskDao = TaskDao(dbHelper!!)
         val url: String =
             inputData.getString(ARG_URL) ?: throw IllegalArgumentException("Argument '$ARG_URL' should not be null")
+        val titleName: String = "Downloading"   
         val filename: String? =
             inputData.getString(ARG_FILE_NAME) // ?: throw IllegalArgumentException("Argument '$ARG_FILE_NAME' should not be null")
         val savedDir: String = inputData.getString(ARG_SAVED_DIR)
@@ -187,7 +188,7 @@ class DownloadWorker(context: Context, params: WorkerParameters) :
         setupNotification(applicationContext)
         updateNotification(
             applicationContext,
-            "Downloading",
+            titleName,
             DownloadStatus.RUNNING,
             task.progress,
             null,
