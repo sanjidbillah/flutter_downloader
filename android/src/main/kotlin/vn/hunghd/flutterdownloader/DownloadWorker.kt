@@ -187,7 +187,7 @@ class DownloadWorker(context: Context, params: WorkerParameters) :
         setupNotification(applicationContext)
         updateNotification(
             applicationContext,
-            filename ?: url,
+            "Downloading",
             DownloadStatus.RUNNING,
             task.progress,
             null,
