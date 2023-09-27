@@ -70,6 +70,7 @@ class DownloadWorker(context: Context, params: WorkerParameters) :
     private var msgStarted: String? = null
     private var msgInProgress: String? = null
     private var msgCanceled: String? = null
+    private var initialTitle: String? = "Downloading"
     private var msgFailed: String? = null
     private var msgPaused: String? = null
     private var msgComplete: String? = null
@@ -187,7 +188,7 @@ class DownloadWorker(context: Context, params: WorkerParameters) :
         setupNotification(applicationContext)
         updateNotification(
             applicationContext,
-            null,
+            initialTitle,
             DownloadStatus.RUNNING,
             task.progress,
             null,
